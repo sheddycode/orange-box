@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Responsive Navbar</title>
+<head>
+ 
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><img src="img/OrangeBox Final.png" width="170" height="50" alt=""></div>
+    <div class="nav-buttons">
+      <button class="navbtn-patner">Patner</button>
+      <button class="navbtn-wat">Open whatsapp Now</button>
+    </div>
+  </nav>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  :root {
+      --scarlet: #ff4b5c;
+    --scarlet-light: #ff6d7a;
+    --bg-light: #fffafa;
+    --gray: #555;
+  --orange: #FF7A00;
+  --orange-light: #ff9b3b;
+  --green: #00A86B;
+  --green-light: #24c98c;
+  --charcoal: #1c1c22;
+  --muted: #707070;
+  --bg: #ffffff;
+  --card: #fff6f1;
+  --max-width: 1140px;
+  --radius: 14px;
+  
+}
+
+  body {
+    background: #f5f6fa;
+    overflow-x: hidden;
+    margin: 0;
+  background: linear-gradient(180deg, #fff 0%, #fff7f1 100%);
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.8;
+  font-size: 17px;
+  letter-spacing: 0.2px;
+  }
+
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #faf9f8;
+    padding: 0.9rem 1.2rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  /* Buttons */
+  .nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  /* Make it mobile-friendly */
+  @media (max-width: 480px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+    }
+
+    .nav-buttons {
+      align-self: flex-end;
+    }
+  }
+
+
+  /* HERO SECTION */
+   .hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 70px); /* Adjust for navbar height */
+  padding-top: 80px; /* prevents overlap with navbar */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  }
+
+  /* Background video */
+  .hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+
+  /* Overlay */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+    z-index: -1;
+  }
+
+  /* Content Wrapper */
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 90%;
+    flex-wrap: wrap;
+  }
+
+  .hero-text {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 2rem;
+  }
+
+  .hero-text h1 {
+ font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    color: #FA8C3C
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.8rem;
+    color: #f1f1f1;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.7rem 1.6rem;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .navbtn-patner{
+    background-color: transparent;
+    color: #FF7A00;
+    border:1px solid #FA8C3C; ;
+    padding:15px 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .navbtn-patner:hover{
+    background-color:  #FA8C3C;
+    color:ivory;
+    padding:15px 12px;
+    border-radius: 8px;
+    border: none;
+    
+  }
+
+  .navbtn-wat{
+    background-color: #FA8C3C;
+    color:ivory;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 15px 12px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    border:1px solid ivory;
+  }
+
+.navbtn-wat:hover{
+    background-color: ivory;
+    color:  #FA8C3C;
+    border:1px solid #FF7A00;
+}
+
+  /* Rotating Image + Text Section */
+  .rotating-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .rotate-item {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .rotate-item.active {
+    opacity: 1;
+    position: relative;
+  }
+
+  .rotate-item img {
+    width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.8rem;
+  }
+
+  .rotate-item p {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  /* Responsive */
+  @media (max-width: 850px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero-text {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+
+    .rotate-item img {
+      width: 180px;
+      height: 120px;
+    }
+  }
+
+  /* Cards styles*/
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 5rem 2rem;
+    background: #fffafa;
+  }
+
+  /* Header text above cards */
+  .features-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .features-header h2 {
+    font-size: 2rem;
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .features-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #ff4b5c; /* scarlet accent underline */
+    border-radius: 3px;
+  }
+
+  .features-header p {
+    color: #666;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Feature cards */
+  .feature-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(255, 75, 92, 0.15);
+    border-top: 4px solid #ff4b5c;
+    flex: 1 1 300px;
+    max-width: 340px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transform: translateY(40px);
+    opacity: 0;
+
+    /* Animation */
+    animation: fadeUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: var(--delay);
+    transition: all 0.4s ease;
+  }
+
+  /* Fade-up animation */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover Animation */
+  .feature-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(255, 75, 92, 0.25);
+  }
+
+  /* Icon styling */
+  .feature-card .icon {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #ff4b5c;
+    background: rgba(255, 75, 92, 0.1);
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: transform 0.4s ease, background 0.3s ease;
+  }
+
+  .feature-card:hover .icon {
+    transform: scale(1.2) rotate(10deg);
+    background: rgba(255, 75, 92, 0.2);
+  }
+
+  /* Text styling */
+  .feature-card h3 {
+    font-size: 1.3rem;
+    color: #ee5555;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .features {
+      gap: 1.5rem;
+      padding: 3rem 1.5rem;
+    }
+    .features-header h2 {
+      font-size: 1.7rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .feature-card {
+      max-width: 100%;
+    }
+  }
+  /* cards styles ends */
+
+  /* Bukas style */
+ #partners-section { font-family: "Poppins", sans-serif; }
+
+  .partners-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;               /* important */
+    gap: 28px;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;            /* allow wrap on small screens */
+  }
+
+  /* Make the two children flexible */
+  .partner-info,
+  .partner-illustration {
+    flex: 1 1 420px;            /* grow | shrink | base-width */
+    min-width: 280px;           /* prevents becoming too narrow */
+  }
+
+  /* Card base */
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 6px 18px rgba(255, 75, 92, 0.12);
+  }
+
+  /* Left card specifics */
+  .partner-info .card h3 {
+    margin: 0 0 12px;
+    font-size: 1.25rem;
+    color: #222;
+    border-left: 4px solid #ff4b5c;
+    padding-left: 10px;
+  }
+
+  .partner-info .muted {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .scarlet { color: #ff4b5c; font-weight: 600; }
+
+  .btn-group { display:flex; gap:12px; flex-wrap:wrap; }
+
+  .btn {
+    display:inline-block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+
+  .btn-ghost {
+    color: #ff4b5c;
+    border: 2px solid #ff4b5c;
+    background: transparent;
+  }
+  .btn-ghost:hover { background:#ff4b5c; color:#fff; transform: translateY(-3px); }
+
+  .btn-primary {
+    background: #ff4b5c;
+    color: #fff;
+    border: 2px solid #ff4b5c;
+  }
+  .btn-primary:hover { background:#e63a4b; transform: translateY(-3px); }
+
+  /* Illustration card */
+  .partner-illustration .illustration-card {
+    background: #FFF9F5;
+    text-align: center;
+    padding: 24px;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(255,75,92,0.14);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .partner-illustration .illustration-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(255,75,92,0.22);
+  }
+  .partner-illustration .caption { margin-top:14px; color:#555; font-size:15px; }
+
+  /* Animations (appear on load) */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .partner-info .card { animation: fadeUp .9s cubic-bezier(.2,.9,.2,1) both; }
+  .partner-illustration .illustration-card { animation: fadeUp .9s cubic-bezier(.2,.9,.2,1) .18s both; }
+
+  /* Responsive: stack vertically on small screens */
+  @media (max-width: 880px) {
+    .partners-container { flex-direction: column; align-items: center; }
+    .partner-info, .partner-illustration { width: 100%; max-width: 720px; }
+    .partner-info .card h3 { border-left: none; border-bottom: 3px solid #ff4b5c; padding-left:0; padding-bottom:8px; display:inline-block; }
+  }
+
+  @media (max-width: 480px) {
+    #partners-section { padding: 28px 12px; }
+    .card { padding: 16px; border-radius: 14px; }
+    .partner-illustration svg { width: 100%; height: auto; max-width: 260px; }
+  }
+  
+
+  /* WAITLIST SECTION */
+  .waitlist-section {
+    background: var(--bg-light);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .waitlist-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(255, 75, 92, 0.12);
+    max-width: 720px;
+    width: 100%;
+    padding: 36px 26px;
+    animation: fadeUp 1s ease both;
+  }
+
+  .waitlist-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #222;
+    border-left: 4px solid var(--scarlet);
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .muted {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .scarlet {
+    color: var(--scarlet);
+    font-weight: 600;
+  }
+
+  /* Form layout */
+  .waitlist-form {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .form-flex {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  input, select {
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus, select:focus {
+    border-color: var(--scarlet);
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .btn {
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    background: var(--scarlet);
+    color: #fff;
+    border-color: var(--scarlet);
+  }
+
+  .btn-primary:hover {
+    background: var(--scarlet-light);
+    transform: translateY(-3px);
+  }
+
+  .btn-ghost {
+    border: 2px solid var(--scarlet);
+    color: var(--scarlet);
+    background: transparent;
+  }
+
+  .btn-ghost:hover {
+    background: var(--scarlet);
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #fff;
+    border-top: 2px solid rgba(255, 75, 92, 0.1);
+    padding: 28px 16px;
+    text-align: center;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 14px;
+  }
+
+  .social-links a {
+    text-decoration: none;
+    color: var(--gray);
+    transition: color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--scarlet);
+  }
+
+  /* ANIMATION */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-flex {
+      flex-direction: column;
+    }
+    .waitlist-card {
+      padding: 26px 18px;
+    }
+  }
+  /* waitlist styles ends*/
+
+  /* how it works style*/
+    :root {
+    --scarlet: #ff4b5c;
+    --scarlet-light: #ff6d7a;
+    --gray: #666;
+  }
+
+  .how-section {
+    margin-top: 60px;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    background: #fffafa;
+  }
+
+  .how-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(255, 75, 92, 0.12);
+    max-width: 800px;
+    width: 100%;
+    padding: 40px 30px;
+    text-align: left;
+    animation: fadeUp 1s ease both;
+  }
+
+  .how-card h3 {
+    margin-top: 0;
+    font-size: 1.7rem;
+    color: #222;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .scarlet {
+    color: var(--scarlet);
+  }
+
+  /* Steps layout */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  /* Connecting line */
+  .steps::before {
+    content: "";
+    position: absolute;
+    left: 35px;
+    top: 15px;
+    bottom: 15px;
+    width: 3px;
+    background: linear-gradient(var(--scarlet), var(--scarlet-light));
+    opacity: 0.25;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  /* Stagger animation delay */
+  .step:nth-child(1) { animation-delay: 0.1s; }
+  .step:nth-child(2) { animation-delay: 0.3s; }
+  .step:nth-child(3) { animation-delay: 0.5s; }
+
+  /* Circle numbers */
+  .icon-circle {
+    background: linear-gradient(135deg, var(--scarlet), var(--scarlet-light));
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(255, 75, 92, 0.25);
+  }
+
+  /* Step text */
+  .step h5 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+    color: #222;
+  }
+
+  .muted {
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* Fade-up animation */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .how-card {
+      padding: 28px 20px;
+    }
+    .steps::before {
+      left: 25px;
+    }
+    .icon-circle {
+      width: 38px;
+      height: 38px;
+      font-size: 1rem;
+    }
+    .step h5 {
+      font-size: 1.05rem;
+    }
+  }
+  /* how it works style ends */
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="img/herovid.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Get your favorite meals delivered fast — from bukas to grills.</h1>
+      <p>Order from the best local spots near you using WhatsApp. No app downloads — just quick ordering and reliable delivery.</p>
+    </div>
+
+    <div class="rotating-section">
+      <div class="rotate-item active">
+        <img src="img/fridR.jpg" alt="Fried Rice and Chicken">
+        <p>Order from your favorite restaurants</p>
+      </div>
+
+      <div class="rotate-item">
+        <img src="img/supM.jpg" alt="Supermarket Shopping Bag">
+        <p>Order from supermarkets and stores</p>
+      </div>
+
+      <div class="rotate-item">
+        <img src="img/laud.jpg" alt="Laundry Service">
+        <p>Your cloth in a dry cleaner? Get it now</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cards Section -->
+<!-- Feature Section -->
+<section class="features">
+  <div class="features-header">
+    <h2>Why Choose <span><img src="img/OrangeBox Final.png" height="50" width="200" alt=""></span></h2>
+    <p>Fast, reliable, and made for students and citizens across Makurdi — we deliver convenience right to your door.</p>
+  </div>
+
+  <div class="feature-card" style="--delay: 0s">
+    <div class="icon">🍔</div>
+    <h3>Fast Food Delivery</h3>
+    <p>Get your favorite meals delivered hot and fresh — straight from top restaurants in Makurdi.</p>
+  </div>
+
+  <div class="feature-card" style="--delay: 0.3s">
+    <div class="icon">🛍️</div>
+    <h3>Shop & Get It Fast</h3>
+    <p>From groceries to essentials, shop from local stores and we’ll bring them right to your door.</p>
+  </div>
+
+  <div class="feature-card" style="--delay: 0.6s">
+    <div class="icon">🧺</div>
+    <h3>Laundry Pick-up</h3>
+    <p>Too busy for laundry? Schedule a pickup and get your clothes back clean and neatly folded.</p>
+  </div>
+</section>
+
+<!-- How it works section -->
+ <!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-card">
+    <h3>How <span class="scarlet">OrangeBox</span> works</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="icon-circle">1</div>
+        <div>
+          <h5>Browse & Pick</h5>
+          <p class="small muted">Open WhatsApp → see nearby restaurants → select your meal.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="icon-circle">2</div>
+        <div>
+          <h5>Confirm Order</h5>
+          <p class="small muted">Confirm in chat. We send ETA & rider details instantly.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="icon-circle">3</div>
+        <div>
+          <h5>Delivered Fast</h5>
+          <p class="small muted">Our rider picks up & delivers — you pay cash or transfer. Easy!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ <!-- how it works section ends -->
+
+<!-- Partners Two-Column Flex Section -->
+<section id="partners-section" style="background:#fffafa;padding:48px 20px;">
+  <div class="partners-container">
+
+    <!-- LEFT: Partner Info (flex child) -->
+    <div class="partner-info">
+      <div class="card">
+        <h3>Restaurants & Bukas — partner with us</h3>
+        <p class="muted">
+          Want more orders without handling delivery? Join <span class="scarlet">OrangeBox</span> as a vendor.
+          We handle orders, packaging advice, and the riders.
+        </p>
+
+        <div class="btn-group">
+          <a class="btn btn-ghost" href="#waitlist" onclick="document.getElementById('partnerForm')?.scrollIntoView({behavior:'smooth'})">Partner form</a>
+          <a class="btn btn-primary" href="#" onclick="openWhatsAppSupport?.(); return false;">Talk to us on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Illustration (flex child) -->
+    <div class="partner-illustration">
+      <div class="card illustration-card">
+        <!-- Inline SVG -->
+        <svg width="260" height="200" viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="260" height="200" rx="16" fill="#FFF7F0"/>
+          <path d="M40 90h30M35 110h40M45 130h28" stroke="#FFB36A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+          <rect x="110" y="70" width="80" height="55" rx="10" fill="#ff4b5c"/>
+          <rect x="110" y="70" width="80" height="15" rx="8" fill="#ff7a8b"/>
+          <circle cx="122" cy="78" r="3" fill="#fff"/>
+          <text x="150" y="100" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" font-family="Poppins, sans-serif">OrangeBox</text>
+          <circle cx="125" cy="140" r="10" fill="#2ECC71"/>
+          <circle cx="185" cy="140" r="10" fill="#2ECC71"/>
+          <circle cx="105" cy="78" r="8" fill="#2ECC71"/>
+          <path d="M105 86l8 20h12" stroke="#2ECC71" stroke-width="4" stroke-linecap="round"/>
+          <path d="M50 150q40-20 100 0t60 0" stroke="#ff4b5c" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+          <path d="M210 120c0-8 6-14 14-14s14 6 14 14c0 8-14 22-14 22s-14-14-14-22z" fill="#2ECC71"/>
+          <circle cx="224" cy="120" r="4" fill="#fff"/>
+        </svg>
+
+        <p class="caption">🚴 Get your favorite meals delivered fast — order on WhatsApp now.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- waitlist section -->
+ <!-- Waitlist & Join Section -->
+<section id="waitlist" class="waitlist-section">
+  <div class="waitlist-card" id="partnerForm">
+    <h3>Join the waitlist — get early access</h3>
+    <p class="muted">
+      Be the first to know when <span class="scarlet">OrangeBox</span> launches.
+      Early users get exclusive perks and priority delivery access.
+    </p>
+
+    <form id="waitForm" class="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
+      <div class="form-grid">
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input type="tel" id="phone" name="phone" placeholder="WhatsApp number (e.g. 0803...)" required />
+      </div>
+
+      <input type="text" id="area" name="area" placeholder="Area (e.g. BSU North Bank, High-Level)" />
+
+      <div class="form-flex">
+        <input type="email" id="email" name="email" placeholder="Email (optional)">
+        <select id="role" name="role">
+          <option value="">I am a...</option>
+          <option value="student">Student</option>
+          <option value="vendor">Restaurant/Vendor</option>
+          <option value="customer">Customer</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" type="submit">Join Waitlist</button>
+        <button class="btn btn-ghost" type="button" onclick="openWhatsApp();">Order on WhatsApp</button>
+      </div>
+
+      <p id="waitMsg" class="small muted"></p>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="social-links">
+      <a href="#" onclick="openWhatsApp();return false;" class="muted">WhatsApp</a>
+      <a href="#" class="muted">Instagram</a>
+      <a href="#" class="muted">Twitter</a>
+    </div>
+    <div class="muted">OrangeBox © <span id="year"></span> — Made with 💚 in Makurdi</div>
+  </div>
+</footer>
+<script>
+  const items = document.querySelectorAll(".rotate-item");
+  let index = 0;
+
+  setInterval(() => {
+    items[index].classList.remove("active");
+    index = (index + 1) % items.length;
+    items[index].classList.add("active");
+  }, 3500); // change every 3.5 seconds
+
+  
+// waitlist auto-update year script
+  // Auto-update year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
+
+
+</body>
+</html>
