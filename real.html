@@ -8,16 +8,14 @@
  
 </head>
 <body>
-
-  <nav class="navbar">
-    <div class="logo"><img src="img/OrangeBox Final.png" width="170" height="50" alt=""></div>
-    <div class="nav-buttons">
-      <button class="navbtn-patner">Patner</button>
-      <button class="navbtn-wat">Open whatsapp Now</button>
-    </div>
-  </nav>
-
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.poppins-regular-hero {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
   * {
     margin: 0;
     padding: 0;
@@ -26,6 +24,7 @@
   }
 
   :root {
+    --gray: #666;
       --scarlet: #ff4b5c;
     --scarlet-light: #ff6d7a;
     --bg-light: #fffafa;
@@ -55,47 +54,241 @@
   letter-spacing: 0.2px;
   }
 
+  a {
+  text-decoration: none;
+  color:#fff;
+}
+html { scroll-behavior: smooth; }
+
+
+
   
-  /* Navbar */
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #faf9f8;
-    padding: 0.9rem 1.2rem;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+ /* Navbar layout */
+/* Navbar base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo img {
+  max-height: 45px;
+}
+
+/* Desktop buttons aligned to right */
+.nav-buttons-desktop {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+/* Button style */
+.navbtn-patner,
+.navbtn-wat {
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* Partner button */
+.navbtn-patner {
+  background: #fff;
+  border: 2px solid #FA8C3C;
+  color: #FA8C3C;
+}
+.navbtn-patner:hover {
+  background: #FA8C3C;
+  color: #fff;
+}
+
+/* WhatsApp button */
+.navbtn-wat {
+  background: #FA8C3C;
+  color: #fff;
+}
+.navbtn-wat:hover {
+  background: #FA8C3C;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between; /* pushes logo left, toggle right */
+  align-items: center;
+  width: 100%;
+}
+
+/* Make sidebar buttons appear at the top */
+.nav-buttons-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+
+/* Menu toggle button */
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+   color: #FA8C3C;
+  border: none;
+  cursor: pointer;
+  display: none; /* hidden by default */
+}
+
+/* Sidebar (hidden by default) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px; /* start hidden off the left side */
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  transition: left 0.4s ease-in-out; /* smooth slide-in */
+  z-index: 2000;
+}
+
+/* When active (open) */
+.sidebar.active {
+  left: 0; /* slide in from left */
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FA8C3C;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* Sidebar menu links */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.menu-link {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+/* Close button */
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Sidebar links */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.menu-link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu-link:hover {
+  color: #FA8C3C;
+}
+
+/* Sidebar buttons */
+.nav-buttons-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* Responsive rules */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* show menu button */
   }
 
-  .logo {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #333;
-    white-space: nowrap;
+  .nav-buttons-desktop {
+    display: none; /* hide desktop buttons */
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none; /* hide menu button */
   }
 
-  /* Buttons */
-  .nav-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+  .sidebar {
+    display: none; /* hide sidebar */
   }
+}
 
-  /* Make it mobile-friendly */
-  @media (max-width: 480px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.8rem 1rem;
-    }
+/*overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 1500; /* slightly less than sidebar */
+}
 
-    .nav-buttons {
-      align-self: flex-end;
-    }
-  }
+/* When active */
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/*sidebar styles ends here*/
 
 
   /* HERO SECTION */
@@ -162,9 +355,17 @@
   }
 
   .hero-text p {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     margin-bottom: 1.8rem;
     color: #f1f1f1;
+  }
+
+  .hero button{
+    border:none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    background-color: #FA8C3C;
   }
 
   .cta-buttons {
@@ -183,43 +384,6 @@
     font-weight: 500;
     transition: all 0.3s ease;
   }
-
-  .navbtn-patner{
-    background-color: transparent;
-    color: #FF7A00;
-    border:1px solid #FA8C3C; ;
-    padding:15px 12px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .navbtn-patner:hover{
-    background-color:  #FA8C3C;
-    color:ivory;
-    padding:15px 12px;
-    border-radius: 8px;
-    border: none;
-    
-  }
-
-  .navbtn-wat{
-    background-color: #FA8C3C;
-    color:ivory;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 15px 12px;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    border:1px solid ivory;
-  }
-
-.navbtn-wat:hover{
-    background-color: ivory;
-    color:  #FA8C3C;
-    border:1px solid #FF7A00;
-}
 
   /* Rotating Image + Text Section */
   .rotating-section {
@@ -284,12 +448,13 @@
     justify-content: center;
     align-items: stretch;
     gap: 2rem;
-    padding: 5rem 2rem;
+    padding:2rem;
     background: #fffafa;
   }
 
   /* Header text above cards */
   .features-header {
+    align-items: center;
     width: 100%;
     text-align: center;
     margin-bottom: 2rem;
@@ -413,111 +578,118 @@
   /* cards styles ends */
 
   /* Bukas style */
- #partners-section { font-family: "Poppins", sans-serif; }
+/* --- PARTNER SECTION --- */
+.partner-section {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
-  .partners-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;               /* important */
-    gap: 28px;
-    align-items: stretch;
-    justify-content: space-between;
-    flex-wrap: wrap;            /* allow wrap on small screens */
+.partner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1100px;
+  width: 90%;
+}
+
+/* --- LEFT TEXT CARD --- */
+.partner-text {
+  flex: 1;
+  min-width: 320px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(255, 36, 0, 0.15);
+  animation: fadeUp 1s ease forwards;
+}
+
+.partner-text h3 {
+  color: #ff2400;
+  margin-bottom: 10px;
+}
+
+.partner-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+/* --- SLIDER --- */
+.slider {
+  position: relative;
+  flex: 1;
+  min-width: 320px;
+  max-width: 520px;
+  height: 320px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider .slide.active {
+  opacity: 1;
+}
+
+/* --- SLIDER BUTTONS --- */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 36, 0, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+.slider-btn:hover {
+  background: #ff2400;
+}
+.prev { left: 12px; }
+.next { right: 12px; }
+
+/* --- ANIMATION --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+  .partner-content {
+    flex-direction: column;
+    align-items: center;
   }
-
-  /* Make the two children flexible */
-  .partner-info,
-  .partner-illustration {
-    flex: 1 1 420px;            /* grow | shrink | base-width */
-    min-width: 280px;           /* prevents becoming too narrow */
+  .slider {
+    width: 100%;
+    max-width: 100%;
+    height: 260px;
+    min-height: 260px;
   }
-
-  /* Card base */
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 22px;
-    box-shadow: 0 6px 18px rgba(255, 75, 92, 0.12);
-  }
-
-  /* Left card specifics */
-  .partner-info .card h3 {
-    margin: 0 0 12px;
-    font-size: 1.25rem;
-    color: #222;
-    border-left: 4px solid #ff4b5c;
-    padding-left: 10px;
-  }
-
-  .partner-info .muted {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 14px;
-  }
-
-  .scarlet { color: #ff4b5c; font-weight: 600; }
-
-  .btn-group { display:flex; gap:12px; flex-wrap:wrap; }
-
-  .btn {
-    display:inline-block;
-    padding: 10px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all .18s ease;
-  }
-
-  .btn-ghost {
-    color: #ff4b5c;
-    border: 2px solid #ff4b5c;
-    background: transparent;
-  }
-  .btn-ghost:hover { background:#ff4b5c; color:#fff; transform: translateY(-3px); }
-
-  .btn-primary {
-    background: #ff4b5c;
-    color: #fff;
-    border: 2px solid #ff4b5c;
-  }
-  .btn-primary:hover { background:#e63a4b; transform: translateY(-3px); }
-
-  /* Illustration card */
-  .partner-illustration .illustration-card {
-    background: #FFF9F5;
+  .partner-text {
     text-align: center;
-    padding: 24px;
-    border-radius: 18px;
-    box-shadow: 0 8px 22px rgba(255,75,92,0.14);
-    transition: transform .25s ease, box-shadow .25s ease;
   }
-  .partner-illustration .illustration-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 36px rgba(255,75,92,0.22);
-  }
-  .partner-illustration .caption { margin-top:14px; color:#555; font-size:15px; }
-
-  /* Animations (appear on load) */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .partner-info .card { animation: fadeUp .9s cubic-bezier(.2,.9,.2,1) both; }
-  .partner-illustration .illustration-card { animation: fadeUp .9s cubic-bezier(.2,.9,.2,1) .18s both; }
-
-  /* Responsive: stack vertically on small screens */
-  @media (max-width: 880px) {
-    .partners-container { flex-direction: column; align-items: center; }
-    .partner-info, .partner-illustration { width: 100%; max-width: 720px; }
-    .partner-info .card h3 { border-left: none; border-bottom: 3px solid #ff4b5c; padding-left:0; padding-bottom:8px; display:inline-block; }
-  }
-
-  @media (max-width: 480px) {
-    #partners-section { padding: 28px 12px; }
-    .card { padding: 16px; border-radius: 14px; }
-    .partner-illustration svg { width: 100%; height: auto; max-width: 260px; }
-  }
+}
+/*partner section styles ends*/
   
 
   /* WAITLIST SECTION */
@@ -578,19 +750,30 @@
     flex-wrap: wrap;
   }
 
-  input, select {
-    padding: 12px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    outline: none;
-    width: 100%;
-    transition: border-color 0.3s ease;
-  }
+input,
+select {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06); /* subtle soft shadow */
+  transition: all 0.3s ease;
+}
 
-  input:focus, select:focus {
-    border-color: var(--scarlet);
-  }
+/* On focus — make it glow slightly in scarlet */
+input:focus,
+select:focus {
+  border-color: var(--scarlet);
+  box-shadow: 0 4px 12px rgba(255, 75, 92, 0.25);
+}
+input:hover,
+select:hover {
+  transform: translateY(-1px);
+}
+ /* Input styles ends*/
 
   /* Buttons */
   .btn-group {
@@ -690,52 +873,66 @@
   /* waitlist styles ends*/
 
   /* how it works style*/
-    :root {
-    --scarlet: #ff4b5c;
-    --scarlet-light: #ff6d7a;
-    --gray: #666;
-  }
+.how-section {
+  background: url('img/raise.jpg') center/cover no-repeat;
+  padding: 60px 20px;
+  position: relative;
+  color: #fff;
+}
 
-  .how-section {
-    margin-top: 60px;
-    padding: 60px 20px;
-    display: flex;
-    justify-content: center;
-    background: #fffafa;
-  }
+/* Optional overlay for better text visibility */
+.how-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.66); /* dark overlay */
+  z-index: 0;
+}
 
-  .how-card {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(255, 75, 92, 0.12);
-    max-width: 800px;
-    width: 100%;
-    padding: 40px 30px;
-    text-align: left;
-    animation: fadeUp 1s ease both;
-  }
+.how-section .card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  padding: 30px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 
-  .how-card h3 {
-    margin-top: 0;
-    font-size: 1.7rem;
-    color: #222;
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-  }
+.how-section h3 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 25px;
+  text-transform: capitalize;
+  text-shadow: none;
+  position: relative;
+  z-index: 2; /* makes sure it’s above blur */
+  background: transparent; /* no background interference */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .scarlet {
-    color: var(--scarlet);
-  }
+.how-section .step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
 
-  /* Steps layout */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    position: relative;
-    padding-left: 20px;
-  }
+.how-section .icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ff4d4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+}
 
   /* Connecting line */
   .steps::before {
@@ -783,9 +980,17 @@
 
   /* Step text */
   .step h5 {
-    font-size: 1.15rem;
-    margin-bottom: 4px;
-    color: #222;
+    color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  }
+
+  .step p {
+     font-size: 0.95rem;
+  color: #f8f8f8;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   }
 
   .muted {
@@ -826,6 +1031,45 @@
 </style>
 </head>
 <body>
+<nav class="navbar">
+  <div class="nav-header">
+    <div class="logo">
+      <img src="img/OrangeBox Final.png" width="150" height="45" alt="OrangeBox Logo">
+    </div>
+
+    <!-- Hamburger (on mobile, now aligned right) -->
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+  </div>
+
+  <!-- Desktop buttons -->
+  <div class="nav-buttons nav-buttons-desktop">
+    <button class="navbtn-patner">Partner</button>
+    <button class="navbtn-wat">Open WhatsApp</button>
+  </div>
+
+  <!-- Sidebar (mobile) -->
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">&times;</button>
+
+    <!-- Move buttons to the top of the sidebar -->
+    <div class="nav-buttons nav-buttons-mobile">
+       <div class="logo">
+      <img src="img/OrangeBox Final.png" width="150" height="45" alt="OrangeBox Logo">
+    </div>
+
+      <button class="navbtn-patner">Partner</button>
+      <button class="navbtn-wat">Open WhatsApp</button>
+    </div>
+
+    <div class="nav-menu">
+      <a href="#how-it-works" class="menu-link">How it works</a>
+      <a href="#waitlist" class="menu-link">Join Waitlist</a>
+    </div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+</nav>
+
 
 <section class="hero">
   <video autoplay muted loop playsinline>
@@ -834,24 +1078,27 @@
 
   <div class="hero-content">
     <div class="hero-text">
-      <h1>Get your favorite meals delivered fast — from bukas to grills.</h1>
+      <h1 class="poppins-regular-hero">Get your favorite meals delivered fast — from bukas to grills.</h1>
       <p>Order from the best local spots near you using WhatsApp. No app downloads — just quick ordering and reliable delivery.</p>
+    <button>
+      <a href="#how-it-works">How OrangeBox works
+  </button>
     </div>
 
     <div class="rotating-section">
       <div class="rotate-item active">
         <img src="img/fridR.jpg" alt="Fried Rice and Chicken">
-        <p>Order from your favorite restaurants</p>
+     
       </div>
 
       <div class="rotate-item">
         <img src="img/supM.jpg" alt="Supermarket Shopping Bag">
-        <p>Order from supermarkets and stores</p>
+       
       </div>
 
       <div class="rotate-item">
-        <img src="img/laud.jpg" alt="Laundry Service">
-        <p>Your cloth in a dry cleaner? Get it now</p>
+        <img src="img/OrangeBox Delivery Backpack.png" alt="Laundry Service">
+      
       </div>
     </div>
   </div>
@@ -861,7 +1108,7 @@
 <!-- Feature Section -->
 <section class="features">
   <div class="features-header">
-    <h2>Why Choose <span><img src="img/OrangeBox Final.png" height="50" width="200" alt=""></span></h2>
+    <h2 class="choose">Why Choose <span><img src="img/OrangeBox Final.png" height="50" width="200" alt=""></span></h2>
     <p>Fast, reliable, and made for students and citizens across Makurdi — we deliver convenience right to your door.</p>
   </div>
 
@@ -886,10 +1133,11 @@
 
 <!-- How it works section -->
  <!-- HOW IT WORKS -->
-<section class="how-section">
-  <div class="how-card">
+<section class="how-section" id="how-it-works">
     <h3>How <span class="scarlet">OrangeBox</span> works</h3>
 
+  <div class="how-card">
+  
     <div class="steps">
       <div class="step">
         <div class="icon-circle">1</div>
@@ -920,47 +1168,39 @@
  <!-- how it works section ends -->
 
 <!-- Partners Two-Column Flex Section -->
-<section id="partners-section" style="background:#fffafa;padding:48px 20px;">
-  <div class="partners-container">
-
-    <!-- LEFT: Partner Info (flex child) -->
-    <div class="partner-info">
-      <div class="card">
-        <h3>Restaurants & Bukas — partner with us</h3>
-        <p class="muted">
-          Want more orders without handling delivery? Join <span class="scarlet">OrangeBox</span> as a vendor.
-          We handle orders, packaging advice, and the riders.
-        </p>
-
-        <div class="btn-group">
-          <a class="btn btn-ghost" href="#waitlist" onclick="document.getElementById('partnerForm')?.scrollIntoView({behavior:'smooth'})">Partner form</a>
-          <a class="btn btn-primary" href="#" onclick="openWhatsAppSupport?.(); return false;">Talk to us on WhatsApp</a>
-        </div>
+<!-- PARTNER SECTION -->
+<section id="partners" class="partner-section">
+  <div class="partner-content">
+    <!-- Left Text -->
+    <div class="partner-text card">
+      <h3>Restaurants & Bukas — partner with us</h3>
+      <p class="muted">
+        Want more orders without handling delivery? Join <strong>OrangeBox</strong> as a vendor.
+        We handle orders, packaging advice, and the riders.
+      </p>
+      <div class="partner-buttons">
+        <a class="btn btn-ghost" href="#waitlist"
+          onclick="document.getElementById('partnerForm').scrollIntoView({behavior:'smooth'})">
+          Partner form
+        </a>
+        <a class="btn btn-primary" href="#" onclick="openWhatsAppSupport();return false;">
+          Talk to us on WhatsApp
+        </a>
       </div>
     </div>
 
-    <!-- RIGHT: Illustration (flex child) -->
-    <div class="partner-illustration">
-      <div class="card illustration-card">
-        <!-- Inline SVG -->
-        <svg width="260" height="200" viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="260" height="200" rx="16" fill="#FFF7F0"/>
-          <path d="M40 90h30M35 110h40M45 130h28" stroke="#FFB36A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
-          <rect x="110" y="70" width="80" height="55" rx="10" fill="#ff4b5c"/>
-          <rect x="110" y="70" width="80" height="15" rx="8" fill="#ff7a8b"/>
-          <circle cx="122" cy="78" r="3" fill="#fff"/>
-          <text x="150" y="100" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" font-family="Poppins, sans-serif">OrangeBox</text>
-          <circle cx="125" cy="140" r="10" fill="#2ECC71"/>
-          <circle cx="185" cy="140" r="10" fill="#2ECC71"/>
-          <circle cx="105" cy="78" r="8" fill="#2ECC71"/>
-          <path d="M105 86l8 20h12" stroke="#2ECC71" stroke-width="4" stroke-linecap="round"/>
-          <path d="M50 150q40-20 100 0t60 0" stroke="#ff4b5c" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
-          <path d="M210 120c0-8 6-14 14-14s14 6 14 14c0 8-14 22-14 22s-14-14-14-22z" fill="#2ECC71"/>
-          <circle cx="224" cy="120" r="4" fill="#fff"/>
-        </svg>
+    <!-- Right Image Fade Slider -->
+    <div class="slider card fade-slider">
+      <img src="img/OrangeBox Delivery Backpack.png"class="slide active" alt="Meal 1">
+      <img src="img/OrangeBox T-Shirt.png"class="slide" alt="Meal 2">
+      <img src="img/OrangeBox Sweater.png"class="slide" alt="Meal 3">
+      <img src="img/OrangeBox Plastic Carrier Bag 2.png"class="slide" alt="Meal 4">
+      <img src="img/OrangeBox T-Shirt.png"class="slide" alt="Meal 5">
+       <img src="img/girllift.jpg"class="slide" alt="Meal 6">
+        <img src="img/guyride.jpg"class="slide" alt="Meal 7">
 
-        <p class="caption">🚴 Get your favorite meals delivered fast — order on WhatsApp now.</p>
-      </div>
+      <button class="slider-btn prev">&#10094;</button>
+      <button class="slider-btn next">&#10095;</button>
     </div>
   </div>
 </section>
@@ -1016,6 +1256,25 @@
   </div>
 </footer>
 <script>
+// sidebar scripts
+ const menuToggle = document.getElementById("menu-toggle");
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("close-btn");
+const overlay = document.getElementById("overlay");
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.add("active");
+   overlay.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+   overlay.classList.remove("active");
+});
+
+
+// sidebar scripts ends here
+
   const items = document.querySelectorAll(".rotate-item");
   let index = 0;
 
@@ -1029,6 +1288,45 @@
 // waitlist auto-update year script
   // Auto-update year
   document.getElementById("year").textContent = new Date().getFullYear();
+
+
+  // partner section styles
+const slides = document.querySelectorAll(".slider .slide");
+const prevBtn = document.querySelector(".slider .prev");
+const nextBtn = document.querySelector(".slider .next");
+let current = 0;
+let autoSlide;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+function prevSlideFunc() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+}
+
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlideFunc);
+
+function startAutoSlide() {
+  autoSlide = setInterval(nextSlide, 4000);
+}
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
+
+startAutoSlide();
+
+/* Pause on hover */
+const slider = document.querySelector(".slider");
+slider.addEventListener("mouseenter", stopAutoSlide);
+slider.addEventListener("mouseleave", startAutoSlide);
 </script>
 
 
